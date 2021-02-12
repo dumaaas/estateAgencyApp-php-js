@@ -23,11 +23,11 @@
         if( isset($_POST['povrsinaOd']) && isset($_POST['povrsinaOd']) ){
             $povrsinaDo = strtolower($_POST['povrsinaDo']);
             $povrsinaOd = strtolower($_POST['povrsinaOd']);
-            if($_POST['povrsinaDo'] == "") {
-                $where_arr[] = " lower(povrsina) >= '$povrsinaOd' ";
+            if($_POST['povrsinaDo'] == "" && $_POST['povrsinaOd'] != "") {
+                $where_arr[] = " lower(povrsina) >=$povrsinaOd ";
 
-            } else if($_POST['povrsinaOd'] == "") {
-                $where_arr[] = " lower(povrsina) <= '$povrsinaDo' ";
+            } else if($_POST['povrsinaOd'] == "" && $_POST['povrsinaDo'] != "") {
+                $where_arr[] = " lower(povrsina) <= $povrsinaDo ";
             } else if($_POST['povrsinaOd'] != "" && $_POST['povrsinaDo'] != "") {
                 $where_arr[] = " lower(povrsina) >= $povrsinaOd AND lower(povrsina) <= $povrsinaDo ";
             } 
@@ -35,18 +35,18 @@
         if( isset($_POST['cijenaOd']) && isset($_POST['cijenaDo']) ){
             $cijenaDo = strtolower($_POST['cijenaDo']);
             $cijenaOd = strtolower($_POST['cijenaOd']);
-            if($_POST['cijenaDo'] == "") {
-                $where_arr[] = " lower(cijena) >= '$cijenaOd' ";
-            } else if($_POST['cijenaOd'] == "") {
-                $where_arr[] = " lower(cijena) <= '$cijenaDo' ";
+            if($_POST['cijenaDo'] == "" && $_POST['cijenaOd'] != "") {
+                $where_arr[] = " lower(cijena) >= $cijenaOd ";
+            } else if($_POST['cijenaOd'] == "" && $_POST['cijenaDo'] != "") {
+                $where_arr[] = " lower(cijena) <= $cijenaDo ";
             } else if($_POST['cijenaOd'] != "" && $_POST['cijenaDo'] != "") {
-                $where_arr[] = " lower(cijena) >= '$cijenaOd' AND lower(cijena) <= '$cijenaDo' ";
+                $where_arr[] = " lower(cijena) >= $cijenaOd AND lower(cijena) <= $cijenaDo ";
             } 
         }
         $where_str = implode("AND", $where_arr );
         $sqlNekretnine = "SELECT * FROM nekretnina LEFT JOIN sifarnik_gradova ON nekretnina.grad_id = sifarnik_gradova.id LEFT JOIN sifarnik_oglasa ON nekretnina.oglas_id = sifarnik_oglasa.id LEFT JOIN sifarnik_tipova ON nekretnina.tip_id = sifarnik_tipova.id WHERE $where_str";
 
-    $resNekretnine = mysqli_query($dbconn, $sqlNekretnine);
+        $resNekretnine = mysqli_query($dbconn, $sqlNekretnine);
     while($row=mysqli_fetch_assoc($resNekretnine)) {
         $nekretine[] = $row;
     }
