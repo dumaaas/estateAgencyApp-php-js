@@ -69,15 +69,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Agency</title>
 
-     <!-- Preloading styles -->
-     <link rel="preload" href="style/style.css" as="style">
-     <link rel="preload" href="style/owl.carousel.min.css" as="style">
-     <link rel="preload" href="style/owl.theme.default.min.css" as="style">
+    <!-- Preloading styles -->
+    <link rel="preload" href="style/style.css" as="style">
+    <link rel="preload" href="style/owl.carousel.min.css" as="style">
+    <link rel="preload" href="style/owl.theme.default.min.css" as="style">
     <!-- End preloading styles -->
 
     <!-- Preloading scripts -->
@@ -91,18 +92,22 @@
     <link rel="stylesheet" href="style/owl.theme.default.min.css" async>
     <!-- End Styles -->
 </head>
+
 <body class="relative bg-coverImg bg-cover">
     <header class="h-16 bg-header w-full">
         <div class="pt-5 w-1/2 mx-auto">
-            <div class="ml-32 text-base text-white font-galanobold uppercase">
-                <a class="">
-                    Dodaj grad
+            <div class="ml-24 text-base text-white font-galanobold uppercase">
+                <a class="cursor-pointer hover:text-yellow-500" href="index.php">
+                    Nekretnine
                 </a>
-                <a class="ml-32">
-                    Dodaj nekretninu
+                <a class="cursor-pointer hover:text-yellow-500 ml-24" href="gradovi.php">
+                    Gradovi
                 </a>
-                <a class="ml-32">
-                    Dodaj tip
+                <a class="cursor-pointer hover:text-yellow-500 ml-24">
+                    Tipovi nekretnina
+                </a>
+                <a class="cursor-pointer hover:text-yellow-500 ml-24">
+                    Tipovi oglasa
                 </a>
             </div>
         </div>
@@ -123,10 +128,12 @@
         <form action="./index.php" method="POST">
             <div class="pl-1 pb-6 grid grid-cols-3">
                 <div>
-                    <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Grad</label>
+                    <label for="price"
+                        class="block text-base font-galanomedium text-center text-white uppercase">Grad</label>
                     <div class="mt-1 w-full rounded-md">
-                        <select id="gradovi" name="gradovi" class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
-                            <option selected="true" disabled="disabled">Izaberi grad</option>  
+                        <select id="gradovi" name="gradovi"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                            <option selected="true" disabled="disabled">Izaberi grad</option>
                             <?php 
                                 foreach($gradovi as $g) {
                                     echo "<option value=".$g['id'].">".$g['ime_grada']."</option>";
@@ -136,10 +143,12 @@
                     </div>
                 </div>
                 <div>
-                    <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Tip nekretnine</label>
+                    <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Tip
+                        nekretnine</label>
                     <div class="mt-1 w-full rounded-md">
-                        <select id="tipovi" name="tipovi" class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
-                            <option selected="true" disabled="disabled">Izaberi tip</option>  
+                        <select id="tipovi" name="tipovi"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                            <option selected="true" disabled="disabled">Izaberi tip</option>
                             <?php 
                                 foreach($tipovi as $t) {
                                     echo "<option value=".$t['id'].">".$t['tip']."</option>";
@@ -149,11 +158,13 @@
                     </div>
                 </div>
                 <div>
-                    <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Tip oglasa</label>
+                    <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Tip
+                        oglasa</label>
                     <div class="mt-1 w-full rounded-md ">
-        
-                        <select id="oglasi" name="oglasi" class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
-                        <option selected="true" disabled="disabled">Izaberi oglas</option>  
+
+                        <select id="oglasi" name="oglasi"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                            <option selected="true" disabled="disabled">Izaberi oglas</option>
                             <?php 
                                 foreach($oglasi as $o) {
                                     echo "<option value=".$o['id'].">".$o['oglas']."</option>";
@@ -163,32 +174,42 @@
                     </div>
                 </div>
                 <div class="pt-3">
-                    <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Godina izgradnje</label>
+                    <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Godina
+                        izgradnje</label>
                     <div class="mt-1 w-full rounded-md">
-                        <input type="text" id="godina" name="godina" class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                        <input type="text" id="godina" name="godina"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
                     </div>
                 </div>
                 <div class="pt-3">
-                <label for="price" class="block text-base font-galanomedium  text-center text-white uppercase">Povrsina</label>
+                    <label for="price"
+                        class="block text-base font-galanomedium  text-center text-white uppercase">Povrsina</label>
                     <div class="mt-1 w-full rounded-md flex">
-                        <input type="text" id="povrsinaOd" name="povrsinaOd" class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                        <input type="text" id="povrsinaOd" name="povrsinaOd"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
                         <p class="font-galanomedium text-lg ml-2 text-white">-</p>
-                        <input type="text" id="povrsinaDo" name="povrsinaDo" class="focus:ring-indigo-500 focus:border-indigo-500 ml-2 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                        <input type="text" id="povrsinaDo" name="povrsinaDo"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 ml-2 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
                     </div>
                 </div>
                 <div class="pt-3">
-                <label for="price" class="block text-base font-galanomedium text-center text-white uppercase">Cijena</label>
+                    <label for="price"
+                        class="block text-base font-galanomedium text-center text-white uppercase">Cijena</label>
                     <div class="mt-1 w-full rounded-md flex">
-                        <input type="text" id="cijenaOd" name="cijenaOd" class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                        <input type="text" id="cijenaOd" name="cijenaOd"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
                         <p class="font-galanomedium text-lg ml-2 text-white">-</p>
-                        <input type="text" id="cijenaDo" name="cijenaDo" class="focus:ring-indigo-500 focus:border-indigo-500 ml-2 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                        <input type="text" id="cijenaDo" name="cijenaDo"
+                            class="focus:ring-indigo-500 focus:border-indigo-500 ml-2 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
                     </div>
                 </div>
             </div>
             <div class="w-full flex pb-16">
                 <div class="mx-auto">
-                    <button class='cursor-pointer bg-green-500 rounded-lg p-2 text-white font-galanomedium uppercase'>Pretraga</button>
-                    <a class='cursor-pointer bg-red-500 rounded-lg p-2 ml-6 text-white font-galanomedium uppercase'>Ocisti pretragu</a>
+                    <button
+                        class='cursor-pointer bg-green-500 rounded-lg p-2 text-white font-galanomedium uppercase'>Pretraga</button>
+                    <a class='cursor-pointer bg-red-500 rounded-lg p-2 ml-6 text-white font-galanomedium uppercase'>Ocisti
+                        pretragu</a>
                 </div>
             </div>
         </form>
@@ -201,7 +222,13 @@
                 }
             ?>
         </div>
-            <?php
+        <div class="mb-2">
+            <button
+                class="modal-open cursor-pointer bg-yellow-500 rounded-lg p-2 text-white font-galanomedium uppercase">Dodaj
+                nektretninu
+            </button>
+        </div>
+        <?php
                     if(count($nekretine)==2) {
                      echo "<div class='grid grid-cols-2'>";
                     } else if(count($nekretine)==1) {
@@ -214,8 +241,8 @@
                     $slike = explode(',', $n['slika']);
                     echo "<div class='relative overflow-hidden bg-block mb-5  mr-5 rounded-lg break-words text-sm text-text2 font-notoserif'>";
                 ?>
-                    <div class="w-full owl-carousel owl-theme">
-                            <?php foreach($slike as $s) {
+        <div class="w-full owl-carousel owl-theme">
+            <?php foreach($slike as $s) {
                                echo "<div class='item'>";
                                echo "<div>";
                                echo "<img loading='lazy' class='h-179px' src='img/".$s."' alt='slider'>"; 
@@ -223,9 +250,9 @@
                                echo "</div>";
                             }
                             ?>
-                            
-                        </div>
-                <?php
+
+        </div>
+        <?php
                     echo "<div class='absolute right-0 top-4 p-1 bg-yellow-500 text-white uppercase font-galanomedium z-10'>".$n['oglas']."</div>";
                     if($n['status'] == 'Dostupno') {
                         echo "<div class='absolute right-0 top-12 p-1 bg-green-500 text-white uppercase font-galanomedium z-10'>".$n['status']."</div>";
@@ -254,15 +281,171 @@
                     echo "</div>";
                 }
             ?>
+    </div>
+    </div>
+
+
+
+    <!--Modal-->
+    <div
+        class="modal z-10 opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+        <div class="modal-container bg-coverImg w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+            <div
+                class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+                <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 18 18">
+                    <path
+                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                    </path>
+                </svg>
+                <span class="text-sm">(Esc)</span>
+            </div>
+
+            <!-- Add margin if you want to see some of the overlay behind the modal-->
+            <div class="modal-content py-4 text-left px-6">
+                <!--Title-->
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl uppercase text-white font-galanobold">Dodaj nekretninu!</p>
+                    <div class="modal-close cursor-pointer z-50">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 18 18">
+                            <path
+                                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!--Body-->
+                <form action="./sacuvaj_nekretninu.php" method="post" enctype="multipart/form-data">
+                    <div>
+                        <div class="mt-2">
+                            <label for="price"
+                                class="block text-base font-galanomedium text-left text-white uppercase">Grad</label>
+                            <div class="mt-1 w-full rounded-md">
+                                <select id="gradovi" name="gradovi"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                                    <option selected="true" disabled="disabled">Izaberi grad</option>
+                                    <?php 
+                                foreach($gradovi as $g) {
+                                    echo "<option value=".$g['id'].">".$g['ime_grada']."</option>";
+                                }
+                            ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <label for="price"
+                                class="block text-base font-galanomedium text-left text-white uppercase">Tip
+                                nekretnine</label>
+                            <div class="mt-1 w-full rounded-md">
+                                <select id="tipovi" name="tipovi"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                                    <option selected="true" disabled="disabled">Izaberi tip</option>
+                                    <?php 
+                                foreach($tipovi as $t) {
+                                    echo "<option value=".$t['id'].">".$t['tip']."</option>";
+                                }
+                            ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <label for="price"
+                                class="block text-base font-galanomedium text-left text-white uppercase">Tip
+                                oglasa</label>
+                            <div class="mt-1 w-full rounded-md ">
+                                <select id="oglasi" name="oglasi"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                                    <option selected="true" disabled="disabled">Izaberi oglas</option>
+                                    <?php 
+                                foreach($oglasi as $o) {
+                                    echo "<option value=".$o['id'].">".$o['oglas']."</option>";
+                                }
+                            ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <label for="price"
+                                class="block text-base font-galanomedium text-left text-white uppercase">Adresa
+                            </label>
+                            <div class="mt-1 w-full rounded-md">
+                                <input type="text" id="adresa" name="adresa"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <label for="price"
+                                class="block text-base font-galanomedium text-left text-white uppercase">Godina
+                                izgradnje</label>
+                            <div class="mt-1 w-full rounded-md">
+                                <input type="text" id="godina" name="godina"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <label for="price"
+                                class="inline-block text-base font-galanomedium  text-left text-white uppercase">Povrsina</label>
+                            <label for="price"
+                                class="inline-block text-base font-galanomedium text-left ml-16 text-white uppercase">Cijena</label>
+                            <div class="mt-1 w-full rounded-md flex">
+                                <input type="text" id="povrsina" name="povrsina"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-132px border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                                <input type="text" id="cijena" name="cijena"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 h-8 w-132px border-transparent ml-5 bg-white text-gray-500 sm:text-sm rounded-md">
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <label for="price"
+                                class="block text-base font-galanomedium text-left text-white uppercase">Opis
+                            </label>
+                            <div class="mt-1 w-full rounded-md">
+                                <textarea id="opis" name="opis" rows="5"
+                                    class="focus:ring-indigo-500 focus:border-indigo-500 w-72 border-transparent bg-white text-gray-500 sm:text-sm rounded-md">
+                                    </textarea>
+                            </div>
+                        </div>
+                        <div class="pt-3">
+                            <label for="price"
+                                class="block text-base font-galanomedium  text-left text-white uppercase">Slike</label>
+                            <div
+                                class="relative h-40 rounded-lg border-dashed border-2 border-gray-200 bg-white flex justify-center items-center hover:cursor-pointer">
+                                <div class="absolute">
+                                    <div class="flex flex-col items-center "> <i
+                                            class="fa fa-cloud-upload fa-3x text-gray-200"></i> <span
+                                            class="block text-gray-400 font-normal">Attach you files here</span>
+                                        <span class="block text-gray-400 font-normal">or</span> <span
+                                            class="block text-blue-400 font-normal">Browse files</span>
+                                    </div>
+                                </div> <input type="file" name="slike[]" class="h-full w-full opacity-0" multiple>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+            </div>
+            <!--Footer-->
+            <div class="flex justify-center pt-2 pb-2">
+                <button
+                    class="cursor-pointer bg-green-500 rounded-lg p-2 text-white font-galanomedium uppercase'">Dodaj</button>
+            </div>
+            </form>
         </div>
     </div>
+    </div>
+
+
     <!-- Scripts -->
-    <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="js/owl.carousel.min.js" defer></script>
     <script type="text/javascript" src="js/app.js" defer></script>
     <!-- End Scripts -->
 </body>
+
 </html>
