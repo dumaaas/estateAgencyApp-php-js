@@ -1,15 +1,15 @@
 <?php
     include 'db.php';
-
-    $greska = "";
-        if( isset($_GET['greska']) && $_GET['greska'] != "" ){
-            $greska = $_GET['greska'];
-        }
        
-    $sqlGradovi = "SELECT * FROM sifarnik_gradova";
-    $resGradovi = mysqli_query($dbconn, $sqlGradovi);
-    while($rowG = mysqli_fetch_assoc($resGradovi)) {
-        $gradovi[] = $rowG;
+    $greska = "";
+    if( isset($_GET['greska']) && $_GET['greska'] != "" ){
+        $greska = $_GET['greska'];
+    }
+   
+    $sqlTipovi = "SELECT * FROM sifarnik_tipova";
+    $resTipovi = mysqli_query($dbconn, $sqlTipovi);
+    while($rowT = mysqli_fetch_assoc($resTipovi)) {
+        $tipovi[] = $rowT;
     }
 ?>
 
@@ -77,9 +77,8 @@
         <div class="flex justify-center mb-4">
             <button
                 class="p-2 text-white uppercase bg-yellow-500 rounded-lg cursor-pointer modal-open hover:bg-yellow-700 font-galanomedium">
-                Dodaj grad
+                Dodaj tip
             </button>
-            
         </div>
         <?php
                 if($greska != null) {
@@ -88,19 +87,19 @@
                 ?>
         <div class="grid grid-cols-4">
             <?php 
-            foreach($gradovi as $g) {
+            foreach($tipovi as $t) {
             ?>
             <div
                 class="relative mb-5 mr-5 overflow-hidden text-sm break-words rounded-lg bg-block text-text2 font-notoserif">
                 <div class="p-3">
-                    <p class="text-lg text-text1">ID: <?php echo $g['id']?></p>
-                    <p class="text-lg text-text1">Grad: <?php echo $g['ime_grada']?></p>
+                    <p class="text-lg text-text1">ID: <?php echo $t['id']?></p>
+                    <p class="text-lg text-text1">Tip: <?php echo $t['tip']?></p>
                 </div>
                 <div class="flex justify-center pb-3">
-                    <a class="cursor-pointer" href="izbrisi_grad.php?id=<?php echo $g['id']?>"><i
+                    <a class="cursor-pointer" href="izbrisi_tip.php?id=<?php echo $t['id']?>"><i
                             class="text-2xl text-red-500 hover:text-red-900 far fa-trash-alt"></i></a>
                     <a class="cursor-pointer modal-open2"
-                        onclick='izmijeniGrad(<?php echo $g["id"] ?>)'><i
+                        onclick='izmijeniTip(<?php echo $t["id"] ?>)'><i
                             class="ml-2 text-2xl text-blue-500 hover:text-blue-900 far fa-edit"></i></a>
                 </div>
             </div>
@@ -132,7 +131,7 @@
             <div class="px-6 py-4 text-left modal-content">
                 <!--Title-->
                 <div class="flex items-center justify-between pb-3">
-                    <p class="text-2xl text-white uppercase font-galanobold">Dodaj grad!</p>
+                    <p class="text-2xl text-white uppercase font-galanobold">Dodaj tip!</p>
                     <div class="z-50 cursor-pointer modal-close">
                         <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 18 18">
@@ -144,11 +143,11 @@
                 </div>
 
                 <!--Body-->
-                <form action="./dodaj_grad.php" method="post">
+                <form action="./dodaj_tip.php" method="post">
                     <div>
                         <div class="mt-2">
                             <div class="w-full mt-1 rounded-md">
-                                <input placeholder="Unesite ime grada.." type="text" id="grad" name="grad"
+                                <input placeholder="Unesite tip nekretnine.." type="text" id="tip" name="tip"
                                     class="w-full h-8 text-gray-500 bg-white border-transparent rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                         </div>
@@ -185,7 +184,7 @@
             <div class="px-6 py-4 text-left modal-content">
                 <!--Title-->
                 <div class="flex items-center justify-between pb-3">
-                    <p class="text-2xl text-white uppercase font-galanobold">Izmijeni grad!</p>
+                    <p class="text-2xl text-white uppercase font-galanobold">Izmijeni tip!</p>
                     <div class="z-50 cursor-pointer modal-close">
                         <svg class="text-black fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 18 18">
@@ -197,14 +196,14 @@
                 </div>
 
                 <!--Body-->
-                <form action="./izmjeni_grad.php" method="post">
+                <form action="./izmijeni_tip.php" method="post">
                     <div>
                         <div class="mt-2">
                             <div class="w-full mt-1 rounded-md">
-                                <input placeholder="Izmijenite ime grada.." type="text" id="grad_ime_izmjena"
-                                    name="grad_ime" value=""
+                                <input placeholder="Izmijenite ime tipa.." type="text" id="tip"
+                                    name="tip" value=""
                                     class="w-full h-8 text-gray-500 bg-white border-transparent rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                <input type="hidden" id="grad_id_izmjena" name="grad_id" value="">
+                                <input type="hidden" id="tip_id_izmjena" name="tip_id" value="">
                             </div>
                         </div>
                     </div>

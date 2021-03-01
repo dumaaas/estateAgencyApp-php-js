@@ -2,18 +2,28 @@ function izmijeniGrad(id) {
     document.getElementById('grad_id_izmjena').value = id;
 }
 
+function izmijeniNekretninu(id) {
+    document.getElementById('nekretnina_id_izmjena').value = id;
+    console.log(id);
+}
+
+function izmijeniTip(id) {
+    document.getElementById('tip_id_izmjena').value = id;
+}
+
 $(document).ready(function() {
 
 
 
     //slider
     $('.owl-carousel').owlCarousel({
+        center: true,
         nav: false,
         loop: true,
         items: 1,
         smartSpeed: 1200,
         autoplayHoverPause: true,
-        margin: 10,
+        margin: 0,
         dots: true,
         dotsData: false,
 

@@ -47,6 +47,6 @@
     if($res_insert) {
         header("location: index.php?".$slike);
     } else {
-        exit("<pre>".$sql_insert."</pre>");
+        header("location: index.php?greska=Molim vas popunite sva polja!");
     }
 ?>
